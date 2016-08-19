@@ -32,7 +32,7 @@ ggplot(datasetStatus, aes(STATUS, NUM)) +
 # StatusProgressClustered.png
 #
 ggplot(datasetStatus) +
-  geom_line(aes(x=STATUS,y=NUM,group=SEM,colour = SEM)) +
+  geom_line(aes(x=STATUS,y=NUM,group=SEM,colour = SEM), size=2) +
   facet_grid(.~SEM,scales="free")
 
 

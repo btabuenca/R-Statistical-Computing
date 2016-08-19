@@ -1,5 +1,5 @@
 ####################################################################################
-# Minutes waiting from registrado to autorizado entrada
+# Minutes waiting from registrado to autorizado entrada. In percentages. Barchart
 ####################################################################################
 library(ggplot2)
 #Load file
@@ -21,3 +21,24 @@ ggplot(data=datasetMinsWait, aes(x=factor(MINS_WAITING, levels=unique(MINS_WAITI
   geom_vline(xintercept=1, colour="grey", linetype="dashed", size=1) + annotate("text", label = "Primera hora de espera", x = 6, y = 40) + 
   geom_vline(xintercept=14, colour="grey", linetype="dashed", size=1) + annotate("text", label = "En franjas de 1 hora", x = 18, y = 40) +
   geom_text(aes(label = PERCENTAGE), size = 2.5)
+
+
+
+####################################################################################
+# Minutes waiting from registrado to autorizado entrada. In percentages. Pie Chart
+####################################################################################
+
+library(ggplot2)
+library(scales)
+# Barplot
+datasetPieChart<-read.delim("./data/MinsWaitEnterPercentages.csv", header = TRUE, sep=";")
+datasetPieChart
+
+
+bp<- ggplot(datasetPieChart, aes(x="Waiting time", y=PERCENTAGE, fill=MINS_WAITING)) +
+  geom_bar(width = 1, stat = "identity")
+bp
+
+pie <- bp + coord_polar("y", start=0) 
+pie
+
