@@ -34,10 +34,8 @@ ggplot(datasetDayEvolutionAcceso, aes(HOUR_OF_THE_DAY, NUM)) +
 #
 ggplot(datasetDayEvolutionAcceso, aes(HOUR_OF_THE_DAY, NUM)) + 
   geom_line(aes(colour = ACCESO, group = ACCESO), size=2) + 
-  scale_x_continuous(breaks = round(seq(min(datasetDayEvolutionAcceso$HOUR_OF_THE_DAY), max(datasetDayEvolutionAcceso$HOUR_OF_THE_DAY)),1))+
-  geom_point() +
   ylab(label="Num. items") + 
-  xlab("Time of the day")
+  xlab("HOUR_OF_THE_DAY")
 
 
 

@@ -21,6 +21,15 @@ d <- c + geom_line(size=1)
 d
 
 #
+# DayEvolutionSharp.png
+#
+a <- qplot(x = HOUR_OF_THE_DAY, y = REGISTROS, data = datasetEvening, main = "Truck records along the day") 
+b <- a + scale_x_continuous(breaks = round(seq(min(datasetEvening$HOUR_OF_THE_DAY), max(datasetEvening$HOUR_OF_THE_DAY)),1))
+c <- b + geom_line(size=1)
+c
+
+
+#
 # Smoother chart
 # DayEvolutionSmooth.png
 #

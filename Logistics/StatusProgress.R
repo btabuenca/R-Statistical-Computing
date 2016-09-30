@@ -5,7 +5,8 @@ library(ggplot2)
 
 #Load file
 # SEM,NUM,STATUS
-datasetStatus<-read.delim("./data/StatusProgress_.csv", header = TRUE, sep=",")
+#datasetStatus<-read.delim("./data/StatusProgress_.csv", header = TRUE, sep=",")
+datasetStatus<-read.delim("./data/StatusProgress.csv", header = TRUE, sep=",")
 
 #Show data set
 datasetStatus
