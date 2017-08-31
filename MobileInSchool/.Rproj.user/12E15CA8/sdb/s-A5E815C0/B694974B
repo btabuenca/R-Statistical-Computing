@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "####################################################################################\n## Internal consistency. NO APLICA PORQUE NO HAY DIFERENTES MEDICIONES DE LA MISMA COSA\n####################################################################################\n# Cronbach´s Alpha\n\n# Load library\n\n# This is performed only once\n# install.packages(\"psych\",dependencies=TRUE)\nlibrary(\"psych\")\n\ndatasetConsist<-read.delim(\"./data/datasetcorrelation.csv\", header = TRUE, sep=\";\")\nstr(datasetConsist)\ndatasetConsist\n\n# Split values of subscales\nriesgos<-datasetConsist[, c(4, 5, 6, 7, 8, 9)]\nriesgos\n\nventajas<-datasetConsist[, c(11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)]\nventajas\n\n\n# Subscales alpha\nalpha(riesgos)\nalpha(ventajas)\n\n\n# Overall alpha\nalpha(datasetConsist)\n\n\n####################################################################################\n# Normal distribution. Shapiro Wilk\n#####################################################################################\nlibrary(ggplot2)\n# If the test is non-significant (p > .05) it tells us that the distribution of the sample is not significantly different from a normal distribution. \n# If, however, the test is significant (p < .05) then the distribution in question is significantly different from a normal distribution (i.e., it is non-normal). \n# See page 182 stats book\n#Load file\n# grupo;tag;tratamiento;nom;nps;npt;NOISE;lps;lpt;PERFORMANCE\ndatasetShap<-read.delim(\"./csv/shapiro.csv\", header = TRUE, sep=\";\")\n\n#Show data set\ndatasetShap\ndatasetShap$tratamiento\ndatasetShap$nom\ndatasetShap$nps\ndatasetShap$npt\ndatasetShap$NOISE\ndatasetShap$lps\ndatasetShap$lpt\ndatasetShap$PERFORMANCE\n\n## Individual shapiros\n# noise\nshapiro.test(datasetShap$nom)\nshapiro.test(datasetShap$nps)\nshapiro.test(datasetShap$npt)\n\nqplot(sample = datasetShap$nom, stat=\"qq\")\n\n# performance\nshapiro.test(datasetShap$lps)\nshapiro.test(datasetShap$lpt)\n\n## Mean shapiros\nshapiro.test(datasetShap$NOISE)\nqplot(sample = datasetShap$NOISE, stat=\"qq\")\n\nshapiro.test(datasetShap$PERFORMANCE)\nqplot(sample = datasetShap$PERFORMANCE, stat=\"qq\")",
+    "created" : 1502365453907.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "697106642",
+    "id" : "B694974B",
+    "lastKnownWriteTime" : 1502444037,
+    "last_content_update" : 1502444037046,
+    "path" : "C:/btabuenca/Github/R-Statistical-Computing/MobileInSchool/internalconsistency.R",
+    "project_path" : "internalconsistency.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
