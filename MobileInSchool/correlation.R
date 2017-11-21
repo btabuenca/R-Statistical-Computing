@@ -47,14 +47,29 @@ abline(lm(EA ~ EM, data = datasetedades), col = "red", lw=2)
 # ---------------- No ha habido correlacion. Calculamos las medias de riesgos y ventajas
 # edprofe;edalum;edmov;RS;MRI;MVE
 datasetCorrelatavg<-read.delim("./data/datasetcorrelationavg.csv", header = TRUE, sep=";")
-
+datasetCorrelatavg
 
 
 windows() 
 pairs(datasetCorrelatavg)
 dev.off() 
 
+# Obtain r values matrix
 cor(datasetCorrelatavg, use="complete.obs", method="pearson") 
+
+## Obtain p values couples
+# - Edad del profe
+cor.test(datasetCorrelatavg$edprofe,datasetCorrelatavg$MVE)$p.value
+#=>0.011
+cor.test(datasetCorrelatavg$edprofe,datasetCorrelatavg$MRI)$p.value
+#=>0.25
+cor.test(datasetCorrelatavg$edprofe,datasetCorrelatavg$RS)$p.value
+#=>0.46
+
+# - RS - MVE
+cor.test(datasetCorrelatavg$RS,datasetCorrelatavg$MVE)$p.value
+#=>0.0024
+
 
 # Correlation edprofe MVE
 plot(edprofe ~ MVE, data = datasetCorrelatavg, ylab = "edprofe", xlab = "MVE") 

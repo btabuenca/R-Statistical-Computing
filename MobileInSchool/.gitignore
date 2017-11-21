@@ -31,9 +31,3 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
-
-# Report directories
-MobileInSchool/reports/
-MobileInSchool/reports/*.pdf
-MobileInSchool/reports/*.xlsx
-MobileInSchool/reports/*.docx

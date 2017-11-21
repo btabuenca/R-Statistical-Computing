@@ -282,8 +282,21 @@ me
 # Boxplot
 #
 
+
+# Edad de los profesores
+boxplot(fulldataset$edad)
+summary(fulldataset$edad)
+
+
 # Solo la edad
+# ¿Cuál consideras que es la edad apropiada para dar un teléfono con Internet a un niño?
 boxplot(fulldataset$al)
+summary(fulldataset$al)
+
+# Boxplot con edad de profes combinado con edad alumnosmoviles -> boxplotEdadMovil.PNG
+datasetedades<-read.delim("./data/datasetedades.csv", header = TRUE, sep=";")
+library(ggplot2)
+ggplot(datasetedades, aes(x=Edad, y=Años, fill=Edad)) + geom_boxplot() + scale_y_continuous(breaks = c(0,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48)) + coord_flip() + scale_fill_manual(values = c("darkblue", "grey")) + geom_hline(aes(yintercept=14), color="red", linetype="dashed") + geom_hline(aes(yintercept=32), color="red", linetype="dashed")
 
 
 
@@ -299,7 +312,7 @@ ggplot(fulldataset, aes(x=genero, y=al, fill=genero)) + geom_boxplot() + guides(
 
 
 
-# Por tipo de profesor
+# Por tipo de profesor (boxPlotByProfesor.png)
 ggplot(fulldataset, aes(x=profesor, y=al, fill=profesor)) + geom_boxplot()
 
 means <- aggregate(al ~  profesor, fulldataset, mean)

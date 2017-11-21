@@ -1,5 +1,6 @@
 ####################################################################################
-## Internal consistency. NO APLICA PORQUE NO HAY DIFERENTES MEDICIONES DE LA MISMA COSA
+## Internal consistency. NO APLICA PORQUE NO ES UNA ESCALA EN LA QUE HAY DIFERENTES 
+# MEDICIONES DE LA MISMA COSA. Aqui buscamos contrastar
 ####################################################################################
 # Cronbach´s Alpha
 
@@ -15,10 +16,12 @@ datasetConsist
 
 # Split values of subscales
 riesgos<-datasetConsist[, c(4, 5, 6, 7, 8, 9)]
-riesgos
+datasetConsist$R1
+datasetConsist[, c(4)]
+describe(riesgos)
 
 ventajas<-datasetConsist[, c(11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)]
-ventajas
+describe(ventajas)
 
 
 # Subscales alpha
