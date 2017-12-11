@@ -71,50 +71,16 @@ cor.test(datasetCorrelatavg$RS,datasetCorrelatavg$MVE)$p.value
 #=>0.0024
 
 
-# Correlation edprofe MVE
-plot(edprofe ~ MVE, data = datasetCorrelatavg, ylab = "edprofe", xlab = "MVE") 
+# Correlation edprofe MVE. Correlacion débil
+plot(edprofe ~ MVE, data = datasetCorrelatavg, ylab = "Edad profesor", xlab = "Ventajas uso móvil en aula") 
 abline(lm(edprofe ~ MVE, data = datasetCorrelatavg), col = "red", lw=2)
 
-# Correlation edprofe RS
-plot(edprofe ~ RS, data = datasetCorrelatavg, ylab = "edprofe", xlab = "RS") 
+# Correlation edprofe RS. No correlacion
+plot(edprofe ~ RS, data = datasetCorrelatavg, ylab = "Edad profesor", xlab = "Redes sociales") 
 abline(lm(edprofe ~ RS, data = datasetCorrelatavg), col = "red", lw=2)
 
+# Correlation RS MVE. Correlación débil
+plot(RS ~ MVE, data = datasetCorrelatavg, ylab = "Predisposición uso redes sociales", xlab = "Ventajas uso móvil en aula") 
+abline(lm(RS ~ MVE, data = datasetCorrelatavg), col = "blue", lw=2)
 
 
-
-# --------------------------------------------------
-
-plot(students_aprendido ~ students_noise, data = datasetCorrelat, ylab = "Students perceived learning performance", xlab = "Students perceived noise") 
-abline(lm(students_aprendido ~ students_noise, data = datasetCorrelat), col = "red", lw=2)
-
-# Strong correlation NOM NSP
-plot(objective_noise ~ students_noise, data = datasetCorrelat, ylab = "Objective noise measure", xlab = "Students perceived noise") 
-abline(lm(objective_noise ~ students_noise, data = datasetCorrelat), col = "red", lw=2)
-
-# Strong correlation PTP NTP
-plot(teacher_aprendido ~ teacher_noise, data = datasetCorrelat, ylab = "Teachers perception of students performance", xlab = "Teachers perceived noise") 
-abline(lm(teacher_aprendido ~ teacher_noise, data = datasetCorrelat), col = "red", lw=2)
-
-
-
-
-sess_cor <- cor(datasetCorrelat)
-# Rounding decimals
-sess_cor <- round(cor(datasetCorrelat),2)
-sess_cor
-write.table(sess_cor, "./csv/session_correlation.csv", sep=",")
-
-# diasemana numsesion   edad numestudiantes percchicas percchicos objective_noise teacher_noise students_noise teacher_aprendido students_aprendido
-
-# Strong correlation
-cor.test(datasetCorrelat$students_noise, datasetCorrelat$objective_noise)
-cor.test(datasetCorrelat$teacher_noise, datasetCorrelat$teacher_aprendido)
-cor.test(datasetCorrelat$students_noise, datasetCorrelat$students_aprendido)
-
-# Moderate correlation
-cor.test(datasetCorrelat$students_noise, datasetCorrelat$teacher_noise)
-cor.test(datasetCorrelat$teacher_aprendido, datasetCorrelat$students_noise)
-cor.test(datasetCorrelat$percchicos, datasetCorrelat$objective_noise)
-
-cor.test(datasetCorrelat$students_aprendido, datasetCorrelat$numestudiantes)
-cor.test(datasetCorrelat$students_aprendido, datasetCorrelat$objective_noise)
