@@ -70,6 +70,7 @@ summary(fulldataset$conocermoocs)
 prop.table(table(fulldataset$conocermoocs))
 
 #moocsrealizados;
+fulldataset$moocsrealizados
 summary(fulldataset$moocsrealizados)
 sd(fulldataset$moocsrealizados)
 
@@ -107,8 +108,11 @@ summary(fulldataset$moocquierootro)
 #
 #activo
 #
+fulldataset$activo
 summary(fulldataset$activo)
 sd(fulldataset$activo)
+tbl <- table(fulldataset$activo)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 #
@@ -118,26 +122,35 @@ sd(fulldataset$activo)
 #potencialmdperiodicos	
 summary(fulldataset$potencialmdperiodicos)
 sd(fulldataset$potencialmdperiodicos)
+tbl <- table(fulldataset$potencialmdperiodicos)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 #potencialmdtele	
 summary(fulldataset$potencialmdtele)
 sd(fulldataset$potencialmdtele)
+tbl <- table(fulldataset$potencialmdtele)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 #potencialmdradio	
 summary(fulldataset$potencialmdradio)
 sd(fulldataset$potencialmdradio)
+tbl <- table(fulldataset$potencialmdradio)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 #potencialmdredes	
 summary(fulldataset$potencialmdredes)
 sd(fulldataset$potencialmdredes)
-
+tbl <- table(fulldataset$potencialmdredes)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 #potencialmdinternet
 summary(fulldataset$potencialmdinternet)
 sd(fulldataset$potencialmdinternet)
+tbl <- table(fulldataset$potencialmdinternet)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 #
@@ -174,19 +187,29 @@ prop.table(table(fulldataset$perfilinternet))
 #potencialmooc	
 summary(fulldataset$potencialmooc)
 sd(fulldataset$potencialmooc)
+tbl <- table(fulldataset$potencialmooc)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
 
 #potencialeducformal	
 summary(fulldataset$potencialeducformal)
 sd(fulldataset$potencialeducformal)
+tbl <- table(fulldataset$potencialeducformal)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 #potencialeducfamiliar	
 summary(fulldataset$potencialeducfamiliar)
 sd(fulldataset$potencialeducfamiliar)
+tbl <- table(fulldataset$potencialeducfamiliar)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 # edad educaccion	
 summary(fulldataset$edadeducaccion)
 prop.table(table(fulldataset$edadeducaccion))
+tbl <- table(fulldataset$edadeducaccion)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
 
 
 #
@@ -196,22 +219,32 @@ prop.table(table(fulldataset$edadeducaccion))
 #valorainteligencia	
 summary(fulldataset$valorainteligencia)
 sd(fulldataset$valorainteligencia)
+tbl <- table(fulldataset$valorainteligencia)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 #valoraentusiasmo	
 summary(fulldataset$valoraentusiasmo)
 sd(fulldataset$valoraentusiasmo)
+tbl <- table(fulldataset$valoraentusiasmo)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 #valorainiciativas	
 summary(fulldataset$valorainiciativas)
 sd(fulldataset$valorainiciativas)
+tbl <- table(fulldataset$valorainiciativas)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 #valoradifusion	
-summary(fulldataset$potencialeducfamiliar)
-sd(fulldataset$potencialeducfamiliar)
+summary(fulldataset$valoradifusion)
+sd(fulldataset$valoradifusion)
+tbl <- table(fulldataset$valoradifusion)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 #valoraconectar
-summary(fulldataset$potencialeducfamiliar)
-sd(fulldataset$potencialeducfamiliar)
+summary(fulldataset$valoraconectar)
+sd(fulldataset$valoraconectar)
+tbl <- table(fulldataset$valoraconectar)
+cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 
