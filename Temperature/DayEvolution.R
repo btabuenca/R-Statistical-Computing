@@ -2,8 +2,8 @@
 # Evolution Temperature during 2 days
 ####################################################################################
 library(ggplot2)
-#Load file
 
+#Load file
 #5077JTJ_1_20180205.csv
 datasetTemp_1<-read.delim("./data/5077JTJ_1_20180205.csv", header = TRUE, sep=";")
 datasetTemp_2<-read.delim("./data/5077JTJ_2_20180205.csv", header = TRUE, sep=";")
@@ -148,6 +148,133 @@ y <- x + geom_vline(xintercept=60*23, linetype="dashed", colour="grey") + annota
 z <- y + annotate("rect", xmin = 113, xmax = 380, ymin = min(datasetTemp_4$temperatura), ymax = max(datasetTemp_4$temperatura), alpha = .2)
 aa <- z + annotate("rect", xmin = 425, xmax = 626, ymin = min(datasetTemp_4$temperatura), ymax = max(datasetTemp_4$temperatura), alpha = .2)
 ab <- aa + annotate("rect", xmin = 723, xmax = 781, ymin = min(datasetTemp_4$temperatura), ymax = max(datasetTemp_4$temperatura), alpha = .2)
-ad
+ab
+
+
+#####################################################################################
+# Contrasting 2 sensors 
+#####################################################################################
+
+#Load file
+datasetTemperatura<-read.delim("./data/0972JSD_ALL_20180410.csv", header = TRUE, sep=";")
+datasetTemperatura<-read.delim("./data/5077JTJ_ALL_20180411.csv", header = TRUE, sep=";")
+
+datasetTemperatura<-read.delim("./data/0972JSD_ALL_20180417.csv", header = TRUE, sep=";")
+datasetTemperatura<-read.delim("./data/0972JSD_ALL_20180418.csv", header = TRUE, sep=";")
+
+datasetTemperatura<-read.delim("./data/ALL_20180417.csv", header = TRUE, sep=";")
+datasetTemperatura<-read.delim("./data/ALL_20180418.csv", header = TRUE, sep=";")
+datasetTemperatura<-read.delim("./data/ALL_20180426.csv", header = TRUE, sep=";")
+
+# Show data set
+datasetTemperatura
+datasetTemperatura$sensor
+datasetTemperatura$timestamp
+datasetTemperatura$timestamp_str
+datasetTemperatura$temperature
+
+# Read this tutorial http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+
+theme_set(theme_classic())
+
+# LineChart
+p<-ggplot(datasetTemperatura, aes(x=timestamp, y=temperature, group=sensor)) +
+  geom_line(aes(color=sensor)) +
+  geom_point(aes(color=sensor)) + 
+  geom_hline(yintercept=4.5) + 
+  geom_hline(yintercept=-17) + 
+  annotate("text", x=1523920000, y=5.5, label= "Seco") + 
+  annotate("text", x=1523920000, y=3.5, label= "Rerfigerado") +   
+  annotate("text", x=1523920000, y=-16, label= "Rerigerado") + 
+  annotate("text", x=1523920000, y=-18, label= "Congelado") + 
+  scale_x_continuous(name="Hora del día") + 
+  scale_y_continuous(name="Temperature", limits=c(-30, 30))
+p
+
+
+
+p<-ggplot(datasetTemperatura, aes(x=timestamp, y=temperature, group=sensor)) +
+  geom_line(aes(color=sensor)) +
+  geom_point(aes(color=sensor)) + 
+  geom_hline(yintercept=4.5) + 
+  geom_hline(yintercept=-17) + 
+  annotate("text", x=1524000000, y=5.5, label= "Seco") + 
+  annotate("text", x=1524000000, y=3.5, label= "Rerfigerado") +   
+  annotate("text", x=1524000000, y=-16, label= "Rerigerado") + 
+  annotate("text", x=1524000000, y=-18, label= "Congelado") +   
+  scale_x_continuous(name="Hora del día") + 
+  scale_y_continuous(name="Temperature")
+p
+
+summary(datasetTemperatura$timestamp)
+summary(datasetTemperatura$temperature)
+summary(datasetTemperatura$sensor)
+
+
+p<-ggplot(datasetTemperatura, aes(x=timestamp, y=temperature, group=sensor)) +
+  geom_line(aes(color=sensor)) +
+  geom_point(aes(color=sensor)) + 
+  geom_hline(yintercept=0, linetype="dotted") + 
+  geom_hline(yintercept=-2, linetype="dotted") + 
+  geom_hline(yintercept=-4, linetype="dotted") + 
+  geom_hline(yintercept=-6, linetype="dotted") + 
+  geom_hline(yintercept=-8, linetype="dotted") + 
+  geom_hline(yintercept=-10, linetype="dotted") + 
+  geom_hline(yintercept=-12, linetype="dotted") + 
+  geom_hline(yintercept=-14, linetype="dotted") + 
+  geom_hline(yintercept=-16, linetype="dotted") + 
+  geom_hline(yintercept=-18, linetype="dotted") + 
+  geom_hline(yintercept=-20, linetype="dotted") + 
+  geom_hline(yintercept=4.5) + 
+  geom_hline(yintercept=-17) + 
+  annotate("text", x=1524690000, y=5.5, label= "Seco") + 
+  annotate("text", x=1524690000, y=3.5, label= "Rerfigerado") +   
+  annotate("text", x=1524690000, y=-16, label= "Rerigerado") + 
+  annotate("text", x=1524690000, y=-18, label= "Congelado") +     
+  scale_x_continuous(name="Hora del día") + 
+  scale_y_continuous(name="Temperature", limits=c(-30, 30))
+p
+
+
+
+#####################################################################################
+# Pruebas de contraste de dos sensores con dos datasets
+#####################################################################################
+library(ggplot2)
+
+#Load file
+datasetTemperaturaMetiora<-read.delim("./data/metiora_0972JSD_1_20180411.csv", header = TRUE, sep=";")
+
+
+# Show data set
+datasetTemperaturaMetiora
+datasetTemperaturaMetiora$sensor
+datasetTemperaturaMetiora$timestamp
+datasetTemperaturaMetiora$timestamp_str
+datasetTemperaturaMetiora$temperature
+
+# Read this tutorial http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+
+theme_set(theme_classic())
+
+# LineChart_09752_1_day
+p<-ggplot(datasetTemperaturaMetiora, aes(x=timestamp, y=temperature, group=sensor)) +
+  geom_line(aes(color=sensor))+
+  geom_point(aes(color=sensor))
+p
+
+
+# Contrast two sensors data
+datasetTemperaturaDataPrime<-read.delim("./data/dprime_hb2_20180411.csv", header = TRUE, sep=";")
+datasetTemperaturaDataPrime
+newdf <- rbind(datasetTemperaturaMetiora, datasetTemperaturaDataPrime)
+newdf
+theme_set(theme_classic())
+
+# LineChart_09752_1_day
+p<-ggplot(newdf, aes(x=timestamp, y=temperature, group=sensor)) +
+  geom_line(aes(color=sensor))+
+  geom_point(aes(color=sensor))
+p
 
 
