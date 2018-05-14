@@ -1,5 +1,5 @@
 ####################################################################################
-# Summary variables. Basic analysis 
+# Summary variables. Basic analysis. REGISTRATION DATA
 ####################################################################################
 library(ggplot2)
 
@@ -20,9 +20,11 @@ prop.table(table(registrationdataset$gender))
 
 
 
+####################################################################################
+# Summary variables. Basic analysis. PRE-QUESTIONNAIRE
+####################################################################################
 
-
-# Load file
+# Load file 
 # genero;pais;edad;hogar;estudios;empleo;conocermoocs;moocsrealizados;moocstrabajo;moocquierocontactos;moocquierocompartir;moocquieropersonas;moocquieroorganizaciones;moocquierootro;activo;potencialmdperiodicos;potencialmdtele;potencialmdradio;potencialmdredes;potencialmdinternet;perfilperiodicos;perfiltelevision;perfilradio;perfilredes;perfilinternet;potencialmooc;potencialeducformal;potencialeducfamiliar;edadeducaccion;valorainteligencia;valoraentusiasmo;valorainiciativas;valoradifusion;valoraconectar
 fulldataset<-read.delim("./data/resultset.csv", header = TRUE, sep=";")
 
@@ -248,3 +250,28 @@ cbind(tbl,round(prop.table(tbl)*100,2))
 
 
 
+
+
+####################################################################################
+# Summary variables. Basic analysis. POST-QUESTIONNAIRE
+####################################################################################
+library(ggplot2)
+
+# genero;pais;edad;hogar;estudios;empleo;conocermoocs;moocsrealizados;moocstrabajo;moocquierocontactos;moocquierocompartir;moocquieropersonas;moocquieroorganizaciones;moocquierootro;activo;potencialmdperiodicos;potencialmdtele;potencialmdradio;potencialmdredes;potencialmdinternet;perfilperiodicos;perfiltelevision;perfilradio;perfilredes;perfilinternet;potencialmooc;potencialeducformal;potencialeducfamiliar;edadeducaccion;valorainteligencia;valoraentusiasmo;valorainiciativas;valoradifusion;valoraconectar
+postdataset<-read.delim("./data/mlmooces18post.csv", header = TRUE, sep=";")
+
+
+# Show data set
+postdataset
+postdataset$genero
+postdataset$edad
+
+#
+# demographics
+#
+
+#genero
+summary(fulldataset$genero)
+sd(fulldataset$genero)
+prop.table(table(fulldataset$genero)
+           
