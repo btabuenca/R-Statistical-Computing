@@ -257,21 +257,180 @@ cbind(tbl,round(prop.table(tbl)*100,2))
 ####################################################################################
 library(ggplot2)
 
-# genero;pais;edad;hogar;estudios;empleo;conocermoocs;moocsrealizados;moocstrabajo;moocquierocontactos;moocquierocompartir;moocquieropersonas;moocquieroorganizaciones;moocquierootro;activo;potencialmdperiodicos;potencialmdtele;potencialmdradio;potencialmdredes;potencialmdinternet;perfilperiodicos;perfiltelevision;perfilradio;perfilredes;perfilinternet;potencialmooc;potencialeducformal;potencialeducfamiliar;edadeducaccion;valorainteligencia;valoraentusiasmo;valorainiciativas;valoradifusion;valoraconectar
+# Gender  Country	edad ... activa  potencialmooc	potencialperiodicos	potencialtv	potenciaradio	potencialredes	potencialinternet	asuntosinteligencia	asuntosentusiasmo	asuntosiniciativas	asuntosdifundir	asuntosconectar	digitaltoolmapa	digitaltoolvideos	digitaltooltextos	digitaltoolforos	digitaltooltaskindiv	digitaltooltaskgroup	digitaltoolfacebook	digitaltooltwitter	iniciado	acciones
 postdataset<-read.delim("./data/mlmooces18post.csv", header = TRUE, sep=";")
 
 
 # Show data set
 postdataset
-postdataset$genero
+postdataset$Gender
 postdataset$edad
 
 #
 # demographics
 #
 
-#genero
-summary(fulldataset$genero)
-sd(fulldataset$genero)
-prop.table(table(fulldataset$genero)
+#Gender
+summary(postdataset$Gender)
+prop.table(table(postdataset$Gender))
+
+
+#Country
+summary(postdataset$Country)
+prop.table(table(postdataset$Country))
+
+# edad
+summary(postdataset$edad)
+sd(postdataset$edad)
+
+# ¿Se considera una persona activa en la causa de combatir la Basura Marina?
+postdataset$activa
+summary(postdataset$activa)
+sd(postdataset$activa)
+tbl <- table(postdataset$activa)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+
+# Valore el potencial de los siguientes medios digitales para fomentar acciones reales para combatir la basura marina
+#
+# potencial medios digitales
+#
+
+#potencialmooc  
+summary(postdataset$potencialmooc)
+sd(postdataset$potencialmooc)
+tbl <- table(postdataset$potencialmooc)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#potencialmdperiodicos  
+summary(postdataset$potencialperiodicos)
+sd(postdataset$potencialperiodicos)
+tbl <- table(postdataset$potencialperiodicos)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+
+#potencialtv	
+summary(postdataset$potencialtv)
+sd(postdataset$potencialtv)
+tbl <- table(postdataset$potencialtv)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+
+#potencialradio	
+summary(postdataset$potenciaradio)
+sd(postdataset$potenciaradio)
+tbl <- table(postdataset$potenciaradio)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+
+#potencialmdredes	
+summary(postdataset$potencialredes)
+sd(postdataset$potencialredes)
+tbl <- table(postdataset$potencialredes)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#potencialmdinternet
+summary(postdataset$potencialinternet)
+sd(postdataset$potencialinternet)
+tbl <- table(postdataset$potencialinternet)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+
+#
+# valorar
+#
+
+#asuntosinteligencia  
+summary(postdataset$asuntosinteligencia)
+sd(postdataset$asuntosinteligencia)
+tbl <- table(postdataset$asuntosinteligencia)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#entusiasmo	
+summary(postdataset$asuntosentusiasmo)
+sd(postdataset$asuntosentusiasmo)
+tbl <- table(postdataset$asuntosentusiasmo)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#iniciativas	
+summary(postdataset$asuntosiniciativas)
+sd(postdataset$asuntosiniciativas)
+tbl <- table(postdataset$asuntosiniciativas)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#asuntosdifundir	
+summary(postdataset$asuntosdifundir)
+sd(postdataset$asuntosdifundir)
+tbl <- table(postdataset$asuntosdifundir)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#asuntosconectar
+summary(postdataset$asuntosconectar)
+sd(postdataset$asuntosconectar)
+tbl <- table(postdataset$asuntosconectar)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#
+# herramientas digitales del MOOC
+#
+
+#digitaltoolmapa  
+summary(postdataset$digitaltoolmapa)
+sd(postdataset$digitaltoolmapa)
+tbl <- table(postdataset$digitaltoolmapa)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#digitaltoolvideos  
+summary(postdataset$digitaltoolvideos)
+sd(postdataset$digitaltoolvideos)
+tbl <- table(postdataset$digitaltoolvideos)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#digitaltooltextos  
+summary(postdataset$digitaltooltextos)
+sd(postdataset$digitaltooltextos)
+tbl <- table(postdataset$digitaltooltextos)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#digitaltoolforos  
+summary(postdataset$digitaltoolforos)
+sd(postdataset$digitaltoolforos)
+tbl <- table(postdataset$digitaltoolforos)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#digitaltooltaskindiv  
+summary(postdataset$digitaltooltaskindiv)
+sd(postdataset$digitaltooltaskindiv)
+tbl <- table(postdataset$digitaltooltaskindiv)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#digitaltooltaskgroup  
+summary(postdataset$digitaltooltaskgroup)
+sd(postdataset$digitaltooltaskgroup)
+tbl <- table(postdataset$digitaltooltaskgroup)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#digitaltoolfacebook  
+summary(postdataset$digitaltoolfacebook)
+sd(postdataset$digitaltoolfacebook)
+tbl <- table(postdataset$digitaltoolfacebook)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#digitaltooltwitter  
+summary(postdataset$digitaltooltwitter)
+sd(postdataset$digitaltooltwitter)
+tbl <- table(postdataset$digitaltooltwitter)
+cbind(tbl,round(prop.table(tbl)*100,2))
+
+#
+#iniciado  
+#
+summary(postdataset$iniciado)
+prop.table(table(postdataset$iniciado))
+           
+           
+           
+           
+           
+           
            
