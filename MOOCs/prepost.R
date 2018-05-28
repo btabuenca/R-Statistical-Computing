@@ -40,6 +40,12 @@ prepostdataset_pm
 shapiro.test(prepostdataset_pm$valor)
 # In this case also p-value = 2.2e-16 < .05
 
+
+prepostdataset_act<-read.delim("./data/activo.csv", header = TRUE, sep=";")
+prepostdataset_act
+shapiro.test(prepostdataset_act$valor)
+# In this case also p-value = 2.2e-16 < .05
+
 #####################################################
 # Unpaired Two-Samples Wilcoxon Test in R
 # http://www.sthda.com/english/wiki/unpaired-two-samples-wilcoxon-test-in-r
@@ -80,6 +86,11 @@ ggboxplot(prepostdataset_ai, x = "test", y = "valoraconectar",
 
 # Potencial del mooc
 ggboxplot(prepostdataset_pm, x = "test", y = "valor", 
+          color = "test", palette = c("#00AFBB", "#E7B800"),
+          ylab = "Valoración", xlab = "Test")
+
+# Te consideras activo en los mooc
+ggboxplot(prepostdataset_act, x = "test", y = "valor", 
           color = "test", palette = c("#00AFBB", "#E7B800"),
           ylab = "Valoración", xlab = "Test")
 
@@ -129,5 +140,14 @@ wilcox.test(valoraconectar ~ test, data = prepostdataset_ai, exact = FALSE, alet
 #  > valor
 res_valor <- wilcox.test(valor ~ test, data = prepostdataset_pm, exact = FALSE)
 res_valor
+
+
+
+#
+# > prepostdataset_act
+#
+#  > valor
+res_act <- wilcox.test(valor ~ test, data = prepostdataset_act, exact = FALSE)
+res_act
 
 

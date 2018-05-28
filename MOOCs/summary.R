@@ -10,7 +10,9 @@ registrationdataset<-read.delim("./data/registrationdata.csv", header = TRUE, se
 summary(registrationdataset$country)
 prop.table(table(registrationdataset$country))
 
+registrationdataset$age
 summary(registrationdataset$age)
+sd(registrationdataset$age)
 prop.table(table(registrationdataset$age))
 
 summary(registrationdataset$gender)

@@ -35,7 +35,9 @@ t.test(As, Cs)
 #   - when the two groups of samples (A and B), being compared, are normally distributed. This can be checked using Shapiro-Wilk test.
 #   - and when the variances of the two groups are equal. This can be checked using F-test.
 #
-# Check this: https://github.com/btabuenca/R-Statistical-Computing/blob/69f0c4ef0692e2d4498e5e771a4c99d8cfa8b3c2/Noise/noiseJournal.R
-#    pshych alpha - Internal Consistency Reliability
+# Internal Consistency Reliability. Check this: https://github.com/btabuenca/R-Statistical-Computing/blob/69f0c4ef0692e2d4498e5e771a4c99d8cfa8b3c2/Noise/noiseJournal.R
+#    pshych alpha - 
 #    https://www.r-bloggers.com/five-ways-to-calculate-internal-consistency/
+# 
+#   Boxplot
 
