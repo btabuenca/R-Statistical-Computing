@@ -40,6 +40,7 @@ library(ggplot2)
 #Load file
 # grupo;tag;tratamiento;nom;nps;npt;NOISE;lps;lpt;PERFORMANCE
 datasetShap<-read.delim("./csv/shapiro.csv", header = TRUE, sep=";")
+datasetShap<-read.delim("./csv/shapiro_no2EFBil.csv", header = TRUE, sep=";")
 
 #Show data set
 datasetShap
@@ -99,6 +100,17 @@ summary(anova_perflps)
 anova_perflpt <- aov(lpt ~ tratamiento, data = datasetShap) 
 summary(anova_perflpt)
 
+## As no significant changes were found,
+## cluster groups where treatment failed & succeeded. 
+## Analyze ANOVA separately to check if it signficant.
+datasetShap<-read.delim("./csv/shapiro_succeed.csv", header = TRUE, sep=";")
+datasetShap<-read.delim("./csv/shapiro_failed.csv", header = TRUE, sep=";")
+
+anova_noisenom <- aov(nom ~ tratamiento, data = datasetShap) 
+summary(anova_noisenom)
+
+
+
 ####################################################################################
 ## Means and SD
 ####################################################################################
@@ -119,6 +131,19 @@ meansnps <- aggregate(volumen ~ tratamiento, datasetSTtest, mean)
 meansnps
 sdnps <- aggregate(volumen ~ tratamiento, datasetSTtest, sd)
 sdnps
+
+# nps
+meansnps <- aggregate(volumen ~ tag, datasetSTtest, mean)
+write.table(meansnps, "./csv/meansnps.csv", sep=",")
+sdnps <- aggregate(volumen ~ tag, datasetSTtest, sd)
+write.table(sdnps, "./csv/sdnps.csv", sep=",")
+
+#lps
+meanslps <- aggregate(aprendido ~ tag, datasetSTtest, mean)
+write.table(meanslps, "./csv/meanslps.csv", sep=",")
+sdlps <- aggregate(aprendido ~ tag, datasetSTtest, sd)
+write.table(sdlps, "./csv/sdlps.csv", sep=",")
+
 
 #student aprendido
 meanslps <- aggregate(aprendido ~ tratamiento, datasetSTtest, mean)
@@ -190,6 +215,7 @@ means <- aggregate(decibels ~ round, datasetNoise, mean)
 means
 means <- aggregate(decibels ~ group, datasetNoise, mean)
 means
+
 write.table(means, "./csv/noisemeansbygroup.csv", sep=",")
 
 ggplot(datasetNoise, aes(x=round, y=decibels)) + geom_boxplot() + stat_summary(fun.y=mean, colour="darkred", geom="point", shape=18, size=3,show_guide = FALSE) + geom_text(data = means, aes(label = decibels, y = decibels + 1)) 
@@ -521,7 +547,7 @@ k <- j + geom_vline(xintercept=14, colour="grey", linetype="dashed", size=1)
 k
 
 
-aaaaaa
+
 #
 # Means and SD
 #

@@ -40,6 +40,16 @@ prepostdataset_pm
 shapiro.test(prepostdataset_pm$valor)
 # In this case also p-value = 2.2e-16 < .05
 
+
+prepostdataset_ra<-read.delim("./data/rolactivo.csv", header = TRUE, sep=";")
+prepostdataset_ra
+shapiro.test(prepostdataset_ra$valor)
+# In this case also p-value = 2.2e-16 < .05
+
+
+
+
+
 #####################################################
 # Unpaired Two-Samples Wilcoxon Test in R
 # http://www.sthda.com/english/wiki/unpaired-two-samples-wilcoxon-test-in-r
